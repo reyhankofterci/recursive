@@ -1,48 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-/*calculate the sum of all numbers(including this number) up
-to a natural number given in the main function using a recursive function*/
-
-void list(int num)
-    {
-        if(num==0)
-        {
-            printf("%d",num);
-        }
-        else
-        {
-            printf("%d\n",num);
-            list(num-1);
-        }
-    }
-
-int collect(int num)
-{
-    if (num==0)
-    {
-        return 0;
-    }
-    else
-    {
-        return num+collect(num-1);
-    }
-}
-
-
-
+/*write a recursion program that finds the largest
+ element in the entered array in C language.*/
 
 int main()
 {
-
     int n;
-
-    printf("Enter a natural number:");
+    int array[100];
+    printf("Please enter the number of elements(1-100): ");
     scanf("%d",&n);
-    list(n);
-    printf("\nTotal: %d",collect(n));
 
+    for (int i = 0; i < n; ++i)
+    {
+        printf("%d.Number: ", i + 1);
+        scanf("%d", &array[i]);
+    }
+
+    for (int i = 1; i < n; ++i)
+    {
+        if (array[0] < array[i])
+        {
+        array[0] = array[i];
+        }
+    }
+
+    printf("The biggest element: %d",array[0]);
 
     return 0;
+
 }
